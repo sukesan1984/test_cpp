@@ -5,19 +5,15 @@
 /*const char *mystrstr(const char *text, const char *pat);*/
 
 int isMatch(char *text, char *pat){
-   /*if(strlen(text) < strlen(pat)){*/
-       /*return 0;*/
-   /*}*/
-
-   if(*pat == '\0'){//最後までいったら、全てマッチした
-       return 1;
+   int i = 0;
+   while(pat[i] != '\0'){
+       if(text[i] != pat[i]){
+           //一致しない文字が来たらfalse
+           return 0;
+       }
+       i++;
    }
-
-   if(text[0] != pat[0]){
-       return 0;
-   }
-
-   return isMatch(text+1, pat+1);
+   return 1;
 };
 
 char* makeText(){
@@ -67,14 +63,18 @@ int main(void)
         char    s5[] = "";                      /* \0 */
         char    *sp;
 
-        sp = mystrstr(s1,s2);
-        printf("一致する場合 : %s\n",sp);
-        sp = mystrstr(s1,s3);
-        printf("一致しない場合 : %s\n",sp);
-        sp = mystrstr(s1,s4);
-        printf("検索対象文字列より長い場合 : %s\n",sp);
-        sp = mystrstr(s1,s5);
-        printf("\\0 : %s\n",sp);
+        printf("true:%d\n", isMatch("abcdef", "ab"));
+        printf("false:%d\n", isMatch("abcdef", "ce"));
+        printf("false:%d\n", isMatch("abcdef", "abcdefg"));
+
+        /*sp = mystrstr(s1,s2);*/
+        /*printf("一致する場合 : %s\n",sp);*/
+        /*sp = mystrstr(s1,s3);*/
+        /*printf("一致しない場合 : %s\n",sp);*/
+        /*sp = mystrstr(s1,s4);*/
+        /*printf("検索対象文字列より長い場合 : %s\n",sp);*/
+        /*sp = mystrstr(s1,s5);*/
+        /*printf("\\0 : %s\n",sp);*/
 
         
         /*char *text = makeText();*/
