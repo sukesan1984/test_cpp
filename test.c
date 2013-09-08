@@ -27,16 +27,20 @@ char* makeText(){
 };
 
 char* mystrstr(char* text, char* pat){
-    //text:abcdefghijklmn
-    //pat:defgh
-    //a b c d
-    //      d
     while(*text != '\0'){
-        if(!isMatch(text, pat)){
-            text++;
-        } else {
-            return text;
+        char* t = text;
+        char* p = pat;
+        // *tと*pが一致してたらtとpのポインタを移動させて次のループB
+        while(*t == *p){ //trueの間だけループ
+            // pが最後までいったらマッチしたとして、textをreturn;
+            if(*p == '\0'){
+                return text;
+            }
+            t++;
+            p++;
         }
+        // *tと*pが一致しなくなったら、textのポインタを移動して、次のループA
+        text++;
     }
     return NULL;
 };
@@ -65,7 +69,7 @@ int main(void)
 
         
         char *text = makeText();
-        char *pat = "sukesan";
+        char *pat = "suke";
 
         int start;
         int end;
