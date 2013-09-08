@@ -5,13 +5,13 @@
 /*const char *mystrstr(const char *text, const char *pat);*/
 
 int isMatch(char *text, char *pat){
-   int i = 0;
-   while(pat[i] != '\0'){
-       if(text[i] != pat[i]){
+   while(*pat != '\0'){
+       if(*text != *pat){
            //一致しない文字が来たらfalse
            return 0;
        }
-       i++;
+       text += 1;
+       pat += 1;
    }
    return 1;
 };
