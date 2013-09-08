@@ -37,8 +37,6 @@ char* mystrstr(char* text, char* pat){
     }
 
     char first = pat[0];
-    /*char *hoge = text + 1;*/
-    printf("%c", *(text + 1));
 
     int i = 0;
 
@@ -67,14 +65,14 @@ int main(void)
         printf("false:%d\n", isMatch("abcdef", "ce"));
         printf("false:%d\n", isMatch("abcdef", "abcdefg"));
 
-        /*sp = mystrstr(s1,s2);*/
-        /*printf("一致する場合 : %s\n",sp);*/
-        /*sp = mystrstr(s1,s3);*/
-        /*printf("一致しない場合 : %s\n",sp);*/
-        /*sp = mystrstr(s1,s4);*/
-        /*printf("検索対象文字列より長い場合 : %s\n",sp);*/
-        /*sp = mystrstr(s1,s5);*/
-        /*printf("\\0 : %s\n",sp);*/
+        sp = mystrstr(s1,s2);
+        printf("(defghijkmln)一致する場合 : %s\n",sp);
+        sp = mystrstr(s1,s3);
+        printf("(null)一致しない場合 : %s\n",sp);
+        sp = mystrstr(s1,s4);
+        printf("(null)検索対象文字列より長い場合 : %s\n",sp);
+        sp = mystrstr(s1,s5);
+        printf("\\0 : %s\n",sp);
 
         
         /*char *text = makeText();*/
